@@ -9,6 +9,10 @@ main {
     background-size: contain;
 }
 
+.footerImg {
+    display: none;
+}
+
 .card {
     padding: 89px 0;
     display: flex;
@@ -29,11 +33,12 @@ main {
     font-style: normal;
     margin-bottom: 50px;
 }
-button{
+
+button {
     border: none;
     background: linear-gradient(90deg, #FF9146 0%, #FF351B 100%);
     border-radius: 5px;
-    width:212px;
+    width: 212px;
     height: 48px;
     text-transform: uppercase;
     color: #fff;
@@ -63,15 +68,15 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 55%;
-    height: 100%;
+    width: 849px;
+    height: 900px;
     overflow: hidden;
 }
 
 .imgWrapper {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .footer {
@@ -81,4 +86,96 @@ button{
     justify-content: center;
     align-items: center;
 }
+@media (min-width: 1800px) and (max-width: 2560px) {
+    .imgWrapper {
+        transform: scale(1.6);
+    }
+    .card{
+        position: relative;
+        right: 0;
+        margin-right: 240px;
+        transform: scale(1.6);
+    }
 
+}
+@media (min-width: 1367px) and (max-width: 1800px) {
+    .imgWrapper {
+        transform: scale(1.6);
+    }
+    .card{
+        position: absolute;
+        right: 0;
+        margin-right: 120px;
+        transform: scale(1.2);
+    }
+}
+@media (min-width: 768px) and (max-width: 1367px) {
+    main {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .imgWrapper {
+        width: 721px;
+        height: 766px;
+        overflow: hidden;
+    }
+
+    .card {
+        position: absolute;
+        margin-bottom: 171px;
+        right: 0;
+        margin-right: 20px;
+        width: 488px;
+        height: 626px;
+    }
+}
+
+@media (min-width: 413px) and (max-width: 737px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: no-repeat bottom url("../../img/backIPhoneColor.svg");
+        background-size: contain;
+    }
+
+    .imgWrapper {
+        display: none
+    }
+
+    .card {
+        width: 343px;
+        height: 488px;
+        padding: 20px;
+    }
+
+    .title {
+        padding-top: 20px;
+    }
+
+    .footerImg {
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        padding: 0 10px;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footerImg img{
+        transform: scale(1.6);
+    }
+
+    button {
+        margin-top: 10px;
+        width: 163px;
+        height: 40px;
+    }
+
+
+
+}

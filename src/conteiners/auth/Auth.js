@@ -1,6 +1,8 @@
 import React, {useRef, useState} from 'react'
 import styles from './auth.module.css'
 import img from '../../img/salyDesktop.svg'
+import plus from '../../img/plus.svg'
+import footerImg from '../../img/backiPhone.svg'
 import Email from "../../components/input/Email";
 import Password from "../../components/input/Password";
 
@@ -8,7 +10,7 @@ export const Auth = () => {
     const [input, setInput] = useState({
         passwordValue: '',
         emailValue: '',
-        passwordRequired: false
+        passwordRequired: false,
     })
     const passwordValue = (event) => {
         console.log(event.target.value);
@@ -23,14 +25,18 @@ export const Auth = () => {
     }
     const formSubmit = (e) => {
         e.preventDefault()
-        if(input.passwordValue===''){
-            setInput({...input,passwordRequired: true})
+        if (input.passwordValue === '') {
+            setInput({...input, passwordRequired: true})
         }
-        if (input.passwordValue!==''){
-            setInput({...input,passwordRequired:false})
+        if (input.passwordValue !== '') {
+            setInput({...input, passwordRequired: false})
             if (!input.passwordRequired) {
                 alert(`Done!! password ${input.passwordValue} ${input.emailValue}`)
             }
+        }
+        if (input.passwordValue !== '' && input.emailValue !== '') {
+            alert(`Done!!! email:${input.emailValue} password:${input.passwordValue} `)
+
         }
 
     }
@@ -40,17 +46,21 @@ export const Auth = () => {
             <div className={styles.card}>
                 <p className={styles.title}>login</p>
                 <form onSubmit={(e) => formSubmit(e)} className={styles.form}>
-                    <Email  emailRequired={input.emailRequired}
+                    <Email emailRequired={input.emailRequired}
                            emailValue={emailValue}/>
                     <Password
                         passwordRequired={input.passwordRequired}
                         passwordValue={passwordValue}/>
-                    <button>log in</button>
+                    <button >log in</button>
                 </form>
                 <div className={styles.footer}>
                     <p className={styles.forgot}>Forgot your password?</p>
                     <p className={styles.register}>Don`n have an account yet? <a>Register</a></p>
                 </div>
+            </div>
+            <div className={styles.footerImg}>
+                <img src={footerImg} alt=""/>
+                <img src={plus} alt=""/>
             </div>
         </main>
     )

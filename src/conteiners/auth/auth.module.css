@@ -14,6 +14,7 @@ main {
 }
 
 .card {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
     padding: 89px 0;
     display: flex;
     flex-direction: column;
